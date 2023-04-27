@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Loan Prediction</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<style>
+		.container {
+			width: 400px;
+			margin: 0 auto;
+            /* align-content: center; */
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		.form-group {
+			margin-bottom: 15px;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		input {
+			width: 100%;
+			padding: 5px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+		}
+
+		#prediction-result {
+			margin-top: 20px;
+			padding: 10px;
+			background-color: #f8f8f8;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+		}
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Loan Prediction</h1>
+    <form action="/predict" method="POST">
+        <div class="form-group">
+            <label for="rate_of_interest">Rate of Interest:</label>
+            <input type="number" id="rate_of_interest" name="rate_of_interest" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="interest_rate_spread">Interest Rate Spread:</label>
+            <input type="number" id="interest_rate_spread" name="interest_rate_spread" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="upfront_charges">Upfront Charges:</label>
+            <input type="number" id="upfront_charges" name="upfront_charges" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="property_value">Property Value:</label>
+            <input type="number" id="property_value" name="property_value" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="ltv">Loan-to-Value (LTV):</label>
+            <input type="number" id="ltv" name="ltv" step="0.01" required>
+        </div>
+        <input type="submit" value="Predict">
+    </form>
+
+    <h2>Prediction:</h2>
+    <p id="prediction">{{ prediction }}</p>  
+    </div>
+	<!-- Display the prediction result here -->
+
+    <!-- Add any additional HTML elements or JavaScript code here -->
+</body>
+</html>
